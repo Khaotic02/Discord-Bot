@@ -903,7 +903,6 @@ region_roles = [("🇺🇸", "North America"),
                 ("🇦🇺", "Oceania"), 
                 ("🇿🇦", "Africa")]
 
-# Create the Embed with Emoji and Text
 embed_notifications = discord.Embed(title="Pick Your Notifications", color=discord.Color.blue())
 for emoji, role in notifications_roles:
     embed_notifications.add_field(name=f"{emoji} {role}", value="React to select", inline=False)
@@ -916,10 +915,8 @@ embed_region = discord.Embed(title="Pick Your Region", color=discord.Color.purpl
 for emoji, role in region_roles:
     embed_region.add_field(name=f"{emoji} {role}", value="React to select", inline=False)
 
-# Command to send messages with buttons
 @bot.command(name="role_menu")
 async def display_roles(ctx):
-    # Create a View with Buttons (without text)
     view_notifications = View()
     for emoji, role in notifications_roles:
         button = Button(style=discord.ButtonStyle.primary, emoji=emoji, custom_id=f"notification_{role}")
@@ -935,11 +932,8 @@ async def display_roles(ctx):
         button = Button(style=discord.ButtonStyle.primary, emoji=emoji, custom_id=f"region_{role}")
         view_region.add_item(button)
 
-    # Send embed with buttons for notifications
     message_notifications = await ctx.send(embed=embed_notifications, view=view_notifications)
-    # Send embed with buttons for poison
     message_poison = await ctx.send(embed=embed_poison, view=view_poison)
-    # Send embed with buttons for region
     message_region = await ctx.send(embed=embed_region, view=view_region)
 
 
