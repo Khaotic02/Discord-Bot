@@ -101,8 +101,8 @@ async def join(ctx):
 
             
 
-spotdl.SpotifyClient.init(client_id='9bfed3b67e4d461095025b427d8a1c1e', client_secret='1d36d2468d2c49cbadbb79e6ff32ff6f')
-client_credentials_manager = SpotifyClientCredentials(client_id='9bfed3b67e4d461095025b427d8a1c1e', client_secret='1d36d2468d2c49cbadbb79e6ff32ff6f')
+
+client_credentials_manager = SpotifyClientCredentials(client_id='SPOTIFY_CLIENT_ID', client_secret='SPOTIFY_CLIENT_SECRET')
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 Disallowed = [398460223163203584]
 
